@@ -30,7 +30,7 @@ steps:
   inputs:
     scriptSource: 'filePath'
     scriptPath: '$(Agent.TempDirectory)/InvisibilityCloak.py'
-    arguments: '-d  $(Build.SourcesDirectory) -n DogeTool -m rot13'
+    arguments: '-d  $(Build.SourcesDirectory) -n DogeTool -m base64'
 
 - task: VSBuild@1
   inputs:

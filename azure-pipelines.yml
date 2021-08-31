@@ -20,17 +20,6 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-- task: DownloadSecureFile@1
-  name: invis
-  displayName: Download InvisibilityCloak
-  inputs:
-    secureFile: 'InvisibilityCloak.py'
-
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'filePath'
-    scriptPath: '$(Agent.TempDirectory)/InvisibilityCloak.py'
-    arguments: '-d  $(Build.SourcesDirectory) -n DogeTool -m base64'
 
 - task: VSBuild@1
   inputs:
@@ -42,5 +31,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'test'
+    ArtifactName: 'rubeus'
     publishLocation: 'Container'
